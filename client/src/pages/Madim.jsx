@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { 
-  getUsuariosRequest, 
+  getUsuarioRequest,  // Cambiado para obtener todos los usuarios
   registerUserRequest, 
   updateUserRequest, 
   deleteUserRequest 
@@ -23,7 +23,7 @@ function Madmin() {
   const [searchTerm, setSearchTerm] = useState("");
 
   const fetchUsers = () => {
-    getUsuariosRequest()  // Llamada a la función de la API
+    getUsuarioRequest()  // Cambiado para la función correcta
       .then((response) => setUsers(response.data))
       .catch((error) => console.error("Error al obtener usuarios:", error));
   };
@@ -221,7 +221,7 @@ function Madmin() {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-sm font-bold mb-2" htmlFor="email">Email</label>
+                  <label className="block text-sm font-bold mb-2" htmlFor="email">Correo</label>
                   <input
                     type="email"
                     id="email"
@@ -245,7 +245,7 @@ function Madmin() {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-sm font-bold mb-2" htmlFor="tipo_usuario">Tipo de usuario</label>
+                  <label className="block text-sm font-bold mb-2" htmlFor="tipo_usuario">Tipo de Usuario</label>
                   <select
                     id="tipo_usuario"
                     name="tipo_usuario"
@@ -258,43 +258,8 @@ function Madmin() {
                     <option value="usuario">Usuario</option>
                   </select>
                 </div>
-                <div className="flex justify-between">
-                  <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded">
-                    Crear
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setIsCreating(false)}
-                    className="px-4 py-2 bg-gray-500 text-white rounded"
-                  >
-                    Cancelar
-                  </button>
-                </div>
+                <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded-lg">Crear</button>
               </form>
-            </div>
-          </div>
-        )}
-
-        {/* Modal para confirmar eliminación */}
-        {isConfirmingDelete && (
-          <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="rounded-lg shadow-lg p-6 w-96">
-              <h2 className="text-xl font-semibold mb-4">Confirmar Eliminación</h2>
-              <p>¿Está seguro de que desea eliminar este usuario?</p>
-              <div className="flex justify-between mt-4">
-                <button
-                  onClick={confirmDelete}
-                  className="px-4 py-2 bg-red-500 text-white rounded"
-                >
-                  Confirmar
-                </button>
-                <button
-                  onClick={() => setIsConfirmingDelete(false)}
-                  className="px-4 py-2 bg-gray-500 text-white rounded"
-                >
-                  Cancelar
-                </button>
-              </div>
             </div>
           </div>
         )}
