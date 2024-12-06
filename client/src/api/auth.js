@@ -18,6 +18,8 @@ const axiosInstance = axios.create({
 export const getUsuariosRequest = (id_usuario) => axiosInstance.get(`/usuarios/${id_usuario}`);
 export const getUsuarioRequest = () => axiosInstance.get(`/usuarios`);
 export const registerUserRequest = (user) => axiosInstance.post(`/usuarios`, user);
+export const updateUserRequest = (user) => axiosInstance.patch(`/usuarios`, user);
+export const deleteUserRequest = (user) => axiosInstance.delete(`/usuarios`, user);
 
 //-------- CONSULTAS CLIENTS ---------
 export const registerClientRequest = (user) => axiosInstance.post(`/clientes`, user);
