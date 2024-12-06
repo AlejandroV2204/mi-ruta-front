@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = 'https://api.render.com/deploy/srv-ct8kjr52ng1s739mntj0?key=DGwiUjLUVNs'; // URL de la API
+const API = 'https://mi-ruta-backend.onrender.com'; // URL de la API
 
 // Configuración de Axios
 const axiosInstance = axios.create({
